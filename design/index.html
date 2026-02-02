@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resolution Tracker — UI Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-bg">
+      <div class="grain"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <header class="topbar">
+        <div class="brand">
+          <div class="mark">RT</div>
+          <div>
+            <div class="brand-name">Resolution Tracker</div>
+            <div class="brand-sub">10-week momentum, one glance</div>
+          </div>
+        </div>
+        <nav class="tabs" role="tablist">
+          <button class="tab is-active" data-screen="dashboard" role="tab">Dashboard</button>
+          <button class="tab" data-screen="week" role="tab">Week Detail</button>
+          <button class="tab" data-screen="login" role="tab">Sign In</button>
+          <button class="tab" data-screen="mobile" role="tab">Mobile</button>
+        </nav>
+        <div class="account-box">
+          <div class="account-avatar">AB</div>
+          <div>
+            <div class="account-name">Alex Bars</div>
+            <div class="account-meta">Signed in</div>
+          </div>
+        </div>
+      </header>
+
+      <main class="stage">
+        <section class="screen is-active" id="screen-dashboard">
+          <div class="hero">
+            <div>
+              <p class="eyebrow">Week 1 • Live build</p>
+              <h1>Track the journey. Keep the momentum.</h1>
+              <p class="lead">
+                A single, confident dashboard for logging each weekend, seeing progress, and
+                knowing what to do next.
+              </p>
+            </div>
+          </div>
+
+          <div class="kpi-rail panel">
+            <div class="kpi-rail-title">Progress</div>
+            <div class="wide-progress">
+              <div class="wide-progress-bar" style="width: 36%"></div>
+            </div>
+            <div class="wide-progress-label">36% complete • 6 to go</div>
+          </div>
+
+          <div class="kpi-grid three">
+            <div class="kpi-card">
+              <div class="kpi-title">Energy</div>
+              <div class="speedometer">
+                <svg viewBox="0 0 200 120" aria-hidden="true">
+                  <path class="arc red" d="M20,100 A80,80 0 0 1 80,28" />
+                  <path class="arc orange" d="M80,28 A80,80 0 0 1 120,28" />
+                  <path class="arc green" d="M120,28 A80,80 0 0 1 180,100" />
+                  <line class="needle" x1="100" y1="100" x2="145" y2="60" />
+                  <circle class="needle-cap" cx="100" cy="100" r="6" />
+                </svg>
+                <div class="speedo-label">High</div>
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-title">Completion</div>
+              <div class="kpi-value">3 / 10</div>
+              <div class="kpi-sub">1 in progress</div>
+            </div>
+            <div class="kpi-card accent">
+              <div class="kpi-title">Next week</div>
+              <div class="kpi-value">Week 4</div>
+              <div class="kpi-sub">“Build UI prototype”</div>
+            </div>
+          </div>
+
+          <section class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Your 10-week track</h2>
+                <p class="muted">Tap a week to log completion, notes, and time.</p>
+              </div>
+              <button class="ghost">Notes timeline</button>
+            </div>
+
+            <div class="week-list">
+              <article class="week-card complete">
+                <div class="week-meta">
+                  <span class="week-number">Week 1</span>
+                  <span class="week-status status-complete">Complete</span>
+                </div>
+                <div class="week-title">Project kick-off + core decisions</div>
+                <div class="week-data">
+                  <span>2.0h logged</span>
+                  <span>Last note: “Scope locked.”</span>
+                </div>
+                <div class="week-actions">
+                  <button class="ghost">Edit</button>
+                </div>
+                <details class="week-notes">
+                  <summary>View notes</summary>
+                  <p>Locked the scope, aligned on MVP, and set weekly cadence.</p>
+                </details>
+              </article>
+              <article class="week-card in-progress">
+                <div class="week-meta">
+                  <span class="week-number">Week 2</span>
+                  <span class="week-status status-progress">In progress</span>
+                </div>
+                <div class="week-title">Wireframe + initial layout</div>
+                <div class="week-data">
+                  <span>1.7h logged</span>
+                  <span>Last note: “Dashboard flow.”</span>
+                </div>
+                <div class="week-progress">
+                  <div class="progress-line">
+                    <div class="progress-line-fill" style="width: 75%"></div>
+                  </div>
+                  <div class="progress-percent">75%</div>
+                </div>
+                <div class="week-actions">
+                  <button class="ghost">Edit</button>
+                  <button class="primary">Mark Complete</button>
+                </div>
+                <details class="week-notes">
+                  <summary>View notes</summary>
+                  <p>Mapped dashboard flow and set the information hierarchy for the MVP.</p>
+                </details>
+              </article>
+              <article class="week-card complete">
+                <div class="week-meta">
+                  <span class="week-number">Week 3</span>
+                  <span class="week-status status-complete">Complete</span>
+                </div>
+                <div class="week-title">Prototype interactions</div>
+                <div class="week-data">
+                  <span>2.5h logged</span>
+                  <span>Last note: “Tabs + cards.”</span>
+                </div>
+                <div class="week-actions">
+                  <button class="ghost">Edit</button>
+                </div>
+                <details class="week-notes">
+                  <summary>View notes</summary>
+                  <p>Built prototype interactions and polished the navigation flow.</p>
+                </details>
+              </article>
+              <article class="week-card next">
+                <div class="week-meta">
+                  <span class="week-number">Week 4</span>
+                  <span class="week-status status-next">Not started</span>
+                </div>
+                <div class="week-title">Build MVP dashboard</div>
+                <div class="week-actions">
+                  <button class="primary">Start</button>
+                </div>
+              </article>
+              <article class="week-card">
+                <div class="week-meta">
+                  <span class="week-number">Week 5</span>
+                  <span class="week-status status-upcoming">Not started</span>
+                </div>
+                <div class="week-title">Data + auth foundation</div>
+                <div class="week-actions">
+                  <button class="primary">Start</button>
+                </div>
+              </article>
+              <article class="week-card">
+                <div class="week-meta">
+                  <span class="week-number">Week 6</span>
+                  <span class="week-status status-upcoming">Not started</span>
+                </div>
+                <div class="week-title">Polish + PWA</div>
+                <div class="week-actions">
+                  <button class="primary">Start</button>
+                </div>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <section class="screen" id="screen-week">
+          <div class="detail-header">
+            <div>
+              <p class="eyebrow">Week 4 • Suggested next</p>
+              <h1>Build the MVP dashboard</h1>
+              <p class="lead">Log your outcome, time spent, and a quick reflection.</p>
+            </div>
+            <div class="detail-actions">
+              <button class="ghost">Mark complete</button>
+              <button class="primary">Save update</button>
+            </div>
+          </div>
+
+          <div class="detail-grid">
+            <div class="panel">
+              <h3>Notes</h3>
+              <textarea rows="8" placeholder="What went well? What blocked you?"></textarea>
+              <div class="field-row">
+                <div>
+                  <label>Time spent</label>
+                  <div class="field">
+                    <select>
+                      <option>0.5 hours</option>
+                      <option>1 hour</option>
+                      <option>1.5 hours</option>
+                      <option>2 hours</option>
+                      <option selected>2.5 hours</option>
+                      <option>3 hours</option>
+                      <option>4 hours</option>
+                      <option>5+ hours</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                <div class="detail-right">
+                  <div class="detail-progress">
+                    <label>Progress</label>
+                    <div class="range-wrap">
+                      <input class="range is-progress" type="range" min="0" max="100" step="25" value="50" style="--progress:50%" />
+                      <div class="progress-percent">50%</div>
+                    </div>
+                  </div>
+                    <div class="detail-energy">
+                      <label>Energy</label>
+                      <div class="chips">
+                        <button class="chip">Low</button>
+                        <button class="chip is-active">Steady</button>
+                        <button class="chip">High</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="screen" id="screen-login">
+          <div class="login-wrap">
+            <div class="login-card">
+              <h1>Welcome back</h1>
+              <p class="lead">Pick up where you left off.</p>
+              <label>Email</label>
+              <input type="email" placeholder="you@example.com" />
+              <label>Password</label>
+              <input type="password" placeholder="••••••••" />
+              <button class="primary full">Sign in</button>
+              <button class="ghost full">Create account</button>
+            </div>
+            <div class="login-side">
+              <h2>Trust the progress you’ve earned.</h2>
+              <p>
+                The tracker remembers every update so you can focus on the next weekend instead
+                of rebuilding context.
+              </p>
+              <div class="login-metrics">
+                <div>
+                  <div class="metric">10</div>
+                  <div class="metric-label">weeks tracked</div>
+                </div>
+                <div>
+                  <div class="metric">60s</div>
+                  <div class="metric-label">to log a week</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="screen-mobile">
+          <div class="phone">
+            <div class="phone-header">
+              <div>
+                <div class="phone-title">Resolution Tracker</div>
+                <div class="phone-sub">Week 4 • Suggested next</div>
+              </div>
+              <div class="phone-menu">≡</div>
+            </div>
+
+            <div class="phone-progress panel">
+              <div class="kpi-rail-title">Progress</div>
+              <div class="wide-progress">
+                <div class="wide-progress-bar" style="width: 36%"></div>
+              </div>
+              <div class="wide-progress-label">36% complete • 6 to go</div>
+            </div>
+
+            <div class="phone-kpis">
+              <div class="kpi-card">
+                <div class="kpi-title">Energy</div>
+                <div class="speedometer small">
+                  <svg viewBox="0 0 200 120" aria-hidden="true">
+                    <path class="arc red" d="M20,100 A80,80 0 0 1 80,28" />
+                    <path class="arc orange" d="M80,28 A80,80 0 0 1 120,28" />
+                    <path class="arc green" d="M120,28 A80,80 0 0 1 180,100" />
+                    <line class="needle" x1="100" y1="100" x2="145" y2="60" />
+                    <circle class="needle-cap" cx="100" cy="100" r="6" />
+                  </svg>
+                  <div class="speedo-label">High</div>
+                </div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-title">Completion</div>
+                <div class="kpi-value">3 / 10</div>
+                <div class="kpi-sub">1 in progress</div>
+              </div>
+            </div>
+
+            <div class="phone-next panel">
+              <div class="kpi-title">Next week</div>
+              <div class="week-title">Week 4 • Build MVP dashboard</div>
+              <p class="muted">Tap to log your notes and time spent.</p>
+              <button class="primary full">Start Week 4</button>
+            </div>
+
+            <div class="phone-scroll">
+              <div class="phone-scroll-title">Weeks</div>
+              <div class="phone-card complete">
+                <div class="phone-card-head">
+                  <span>Week 1</span>
+                  <span class="status-complete">Completed</span>
+                </div>
+                <div class="phone-card-title">Project kick-off + core decisions</div>
+                <div class="phone-card-meta">2.0h logged • “Scope locked.”</div>
+                <div class="phone-card-actions">
+                  <button class="ghost">Edit</button>
+                </div>
+              </div>
+              <div class="phone-card in-progress">
+                <div class="phone-card-head">
+                  <span>Week 2</span>
+                  <span class="status-progress">In progress</span>
+                </div>
+                <div class="phone-card-title">Wireframe + initial layout</div>
+                <div class="phone-card-meta">1.7h logged</div>
+                <div class="progress-line">
+                  <div class="progress-line-fill" style="width: 75%"></div>
+                </div>
+                <div class="phone-card-actions">
+                  <button class="ghost">Edit</button>
+                  <button class="primary">Mark Complete</button>
+                </div>
+              </div>
+              <div class="phone-card complete">
+                <div class="phone-card-head">
+                  <span>Week 3</span>
+                  <span class="status-complete">Completed</span>
+                </div>
+                <div class="phone-card-title">Prototype interactions</div>
+                <div class="phone-card-meta">2.5h logged</div>
+                <div class="phone-card-actions">
+                  <button class="ghost">Edit</button>
+                </div>
+              </div>
+              <div class="phone-card next">
+                <div class="phone-card-head">
+                  <span>Week 4</span>
+                  <span class="status-next">Not started</span>
+                </div>
+                <div class="phone-card-title">Build MVP dashboard</div>
+                <div class="phone-card-actions">
+                  <button class="primary">Start</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ede9f9;
+  --bg-2: #e6e1f3;
+  --ink: #2a2542;
+  --muted: #6f678a;
+  --accent: #6c5ce7;
+  --accent-2: #8c7bff;
+  --accent-3: #ffcc4d;
+  --card: #f3f0fb;
+  --shadow: 14px 14px 28px rgba(189, 182, 214, 0.8),
+    -14px -14px 28px rgba(255, 255, 255, 0.8);
+  --shadow-inset: inset 8px 8px 16px rgba(189, 182, 214, 0.6),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-nunito);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at top left, #f4f1ff, var(--bg) 45%, var(--bg-2) 100%);
+  color: var(--ink);
+  font-family: var(--font-nunito), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 24px 80px;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 24px;
+  border: 1px solid rgba(138, 127, 176, 0.15);
+  box-shadow: var(--shadow);
+}
+
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(108, 92, 231, 0.12);
+  color: var(--accent);
+  font-family: var(--font-quicksand), sans-serif;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #b1a7ff);
+  color: white;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-ghost {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid rgba(138, 127, 176, 0.2);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-ghost:hover {
+  transform: translateY(-1px);
+  box-shadow: 18px 18px 34px rgba(189, 182, 214, 0.8),
+    -18px -18px 34px rgba(255, 255, 255, 0.85);
+}
+
+.link {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.link:hover {
+  color: var(--accent-2);
+}
+
+.status-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-quicksand), sans-serif;
+}
+
+.status-complete {
+  background: rgba(124, 201, 166, 0.25);
+  color: #2b9e7c;
+}
+
+.status-progress {
+  background: rgba(255, 204, 77, 0.25);
+  color: #b88900;
+}
+
+.status-next {
+  background: rgba(108, 92, 231, 0.18);
+  color: #6c5ce7;
+}
+
+.progress-line {
+  height: 10px;
+  border-radius: 999px;
+  background: #e7e1f3;
+  box-shadow: var(--shadow-inset);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.week-notes {
+  border-top: 1px solid rgba(138, 127, 176, 0.2);
+  padding-top: 10px;
+}
+
+.week-notes summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.week-notes summary::-webkit-details-marker {
+  display: none;
+}
+
+.week-notes summary::marker {
+  content: "";
+}
+
+.week-notes[open] .triangle {
+  transform: rotate(90deg);
+}
+
+.week-notes .triangle {
+  font-size: 12px;
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
+
+.week-notes p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.speedometer .needle {
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.range {
+  width: 100%;
+  appearance: none;
+  height: 12px;
+  border-radius: 999px;
+  background: #e7e1f3;
+  outline: none;
+  box-shadow: var(--shadow-inset);
+}
+
+.range::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  border: 2px solid white;
+  box-shadow: 0 6px 14px rgba(108, 92, 231, 0.3);
+}
+
+.range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  border: 2px solid white;
+  box-shadow: 0 6px 14px rgba(108, 92, 231, 0.3);
+}
+
+.speedometer svg {
+  width: 160px;
+  height: 100px;
+}
+
+.speedometer.small svg {
+  width: 120px;
+  height: 80px;
+}
+
+.speedometer .arc {
+  fill: none;
+  stroke-width: 12;
+  stroke-linecap: round;
+}
+
+.speedometer .arc.red {
+  stroke: #d67b7b;
+}
+
+.speedometer .arc.orange {
+  stroke: #e3b46c;
+}
+
+.speedometer .arc.green {
+  stroke: #7cc9a6;
+}
+
+.speedometer .needle {
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.speedometer .needle-cap {
+  fill: var(--ink);
+}

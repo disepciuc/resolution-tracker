@@ -7,7 +7,7 @@ Resolution Tracker is a full-stack Next.js app with Supabase for auth and data. 
 - Frontend/Backend: Next.js (App Router, TypeScript, Tailwind)
 - Auth + DB: Supabase (Postgres + Auth: Email/Password + Google)
 - Hosting: Vercel
-- PWA: `next-pwa` + Web App Manifest
+- PWA: Serwist + Web App Manifest
 
 ## High-Level Flow
 1. User visits app → checks session (Supabase Auth).

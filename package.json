@@ -28,6 +28,9 @@
     "typescript": "^5"
   },
   "overrides": {
-    "source-map": "0.7.6"
+    "source-map": "0.7.6",
+    "@serwist/build": {
+      "source-map": "0.7.6"
+    }
   }
 }

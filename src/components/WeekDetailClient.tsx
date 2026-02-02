@@ -17,10 +17,10 @@ export default function WeekDetailClient({ week }: Props) {
   const [progress, setProgress] = useState(week.progress_percent);
   const [energy, setEnergy] = useState<EnergyLevel>(week.energy ?? "steady");
   const [saving, setSaving] = useState(false);
-  const isCompleted = week.status === "completed" || progress >= 100;
+  const isCompleted = week.status === "completed";
 
   const deriveStatus = (value: number): WeekStatus => {
-    if (value >= 100) return "completed";
+    if (week.status === "completed") return "completed";
     if (value > 0) return "in_progress";
     return "not_started";
   };
@@ -107,9 +107,15 @@ export default function WeekDetailClient({ week }: Props) {
 
       <div className="mt-6 grid gap-4">
         <div>
-          <label className="text-sm font-semibold text-[var(--muted)]">Notes</label>
+          <label
+            className="text-sm font-semibold text-[var(--muted)]"
+            htmlFor="week-notes"
+          >
+            Notes
+          </label>
           <textarea
             className="mt-2 w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+            id="week-notes"
             rows={6}
             value={notes}
             onChange={(event) => setNotes(event.target.value)}
@@ -120,9 +126,15 @@ export default function WeekDetailClient({ week }: Props) {
 
         <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <label className="text-sm font-semibold text-[var(--muted)]">Time spent (minutes)</label>
+            <label
+              className="text-sm font-semibold text-[var(--muted)]"
+              htmlFor="week-time-spent"
+            >
+              Time spent (minutes)
+            </label>
             <input
               className="mt-2 w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+              id="week-time-spent"
               type="number"
               min={0}
               step={15}
@@ -134,10 +146,16 @@ export default function WeekDetailClient({ week }: Props) {
 
           <div className="grid gap-4">
             <div>
-              <label className="text-sm font-semibold text-[var(--muted)]">Progress</label>
+              <label
+                className="text-sm font-semibold text-[var(--muted)]"
+                htmlFor="week-progress"
+              >
+                Progress
+              </label>
               <div className="relative mt-2">
                 <input
                   className="range"
+                  id="week-progress"
                   type="range"
                   min={0}
                   max={100}

@@ -148,9 +148,6 @@ export default async function Home() {
                   <div className="week-desc text-sm text-[var(--muted)]">
                     {weekDescriptions[week.week_number - 1] ?? "Sign in to see the focus for this week."}
                   </div>
-                  <div className="text-sm text-[var(--muted)]">
-                    Sign in to add your notes, progress, and time.
-                  </div>
                 </div>
               ))}
             </div>

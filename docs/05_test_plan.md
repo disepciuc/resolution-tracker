@@ -47,3 +47,10 @@ Verify end-to-end flows for authentication, dashboard, week detail, and persiste
 - Week detail route opens
 - Auth still works (email + Google)
 - Log out works
+
+## Mobile UX Checklist
+- No multi-column grids on phones (all sections stack)
+- Primary action remains reachable on week detail (sticky or fixed)
+- Tap targets feel thumb-friendly (>= 44x44px)
+- Safe-area padding applied on iOS (no overlap with home indicator)
+- All inputs are usable with one hand (time presets, progress stops, energy selector)

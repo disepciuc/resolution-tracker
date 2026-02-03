@@ -239,6 +239,22 @@ I want to install the app on my phone.
 - App launches from home screen
 - Core dashboard works on mobile screen sizes
 
+#### Story E7.2 — Mobile UI tuning
+
+**As a user**,  
+I want the mobile experience to feel designed for my phone so I can log progress quickly and confidently.
+
+**Acceptance Criteria**
+
+- Mobile layout uses single-column hierarchy; no desktop grids on phones.
+- Primary actions are reachable one-handed and remain visible on detail screens.
+- Tap targets meet minimum 44x44px sizing.
+- Inputs are optimized for quick updates (presets, segmented controls, clear states).
+- Safe-area padding is respected for all primary actions.
+- Visual density is reduced (typography and spacing) for small screens.
+- Header/menu is condensed with overflow actions on mobile.
+- Auth screens use full-width controls with simplified copy.
+
 ---
 
 ### E8 — Persistence & Deployment

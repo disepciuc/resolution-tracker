@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import type { WeekProgress, EnergyLevel, WeekStatus } from "@/lib/types";
@@ -80,7 +81,15 @@ export default function WeekDetailClient({ week }: Props) {
   };
 
   return (
-    <div className="panel p-6">
+    <div className="panel p-6 detail-panel">
+      <div className="panel app-bar mobile-only mb-4">
+        <div className="app-bar-row">
+          <Link className="btn-ghost app-bar-back" href="/">
+            ← Back
+          </Link>
+          <div className="text-sm font-semibold text-[var(--muted)]">Week {week.week_number}</div>
+        </div>
+      </div>
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
@@ -89,17 +98,17 @@ export default function WeekDetailClient({ week }: Props) {
           <h1 className="text-3xl font-bold">Build your momentum</h1>
           <p className="text-sm text-[var(--muted)]">Log notes, time spent, and progress.</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 desktop-only">
           {isCompleted ? (
-            <button className="btn-ghost" onClick={reopenWeek} disabled={saving}>
+            <button className="btn-warning" onClick={reopenWeek} disabled={saving}>
               Reopen
             </button>
           ) : (
-            <button className="btn-ghost" onClick={markComplete} disabled={saving}>
+            <button className="btn-success" onClick={markComplete} disabled={saving}>
               Mark complete
             </button>
           )}
-          <button className="btn-primary" onClick={save} disabled={saving || isCompleted}>
+          <button className="btn-secondary" onClick={save} disabled={saving || isCompleted}>
             Save update
           </button>
         </div>
@@ -114,7 +123,7 @@ export default function WeekDetailClient({ week }: Props) {
             Notes
           </label>
           <textarea
-            className="mt-2 w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+            className="input-field mt-2 w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
             id="week-notes"
             rows={6}
             value={notes}
@@ -132,16 +141,31 @@ export default function WeekDetailClient({ week }: Props) {
             >
               Time spent (minutes)
             </label>
-            <input
-              className="mt-2 w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
-              id="week-time-spent"
-              type="number"
-              min={0}
-              step={15}
-              value={timeSpent}
-              onChange={(event) => setTimeSpent(Number(event.target.value))}
-              disabled={isCompleted}
-            />
+            <div className="mt-2 grid gap-2">
+              <div className="chip-row">
+                {[15, 30, 60, 90].map((minutes) => (
+                  <button
+                    key={minutes}
+                    className={minutes === timeSpent ? "btn-primary" : "btn-ghost"}
+                    type="button"
+                    onClick={() => setTimeSpent(minutes)}
+                    disabled={isCompleted}
+                  >
+                    {minutes}m
+                  </button>
+                ))}
+              </div>
+              <input
+                className="input-field w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+                id="week-time-spent"
+                type="number"
+                min={0}
+                step={15}
+                value={timeSpent}
+                onChange={(event) => setTimeSpent(Number(event.target.value))}
+                disabled={isCompleted}
+              />
+            </div>
           </div>
 
           <div className="grid gap-4">
@@ -169,11 +193,24 @@ export default function WeekDetailClient({ week }: Props) {
                 />
                 <div className="absolute -top-7 right-0 text-sm font-bold">{progress}%</div>
               </div>
+              <div className="chip-row mt-3">
+                {[0, 25, 50, 75, 100].map((value) => (
+                  <button
+                    key={value}
+                    className={value === progress ? "btn-primary" : "btn-ghost"}
+                    type="button"
+                    onClick={() => setProgress(value)}
+                    disabled={isCompleted}
+                  >
+                    {value}%
+                  </button>
+                ))}
+              </div>
             </div>
 
             <div>
               <label className="text-sm font-semibold text-[var(--muted)]">Energy</label>
-              <div className="mt-2 flex flex-wrap gap-2">
+              <div className="mt-2 segmented">
                 {(["low", "steady", "high"] as EnergyLevel[]).map((level) => (
                   <button
                     key={level}
@@ -189,6 +226,21 @@ export default function WeekDetailClient({ week }: Props) {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="sticky-actions">
+        {isCompleted ? (
+          <button className="btn-warning" onClick={reopenWeek} disabled={saving}>
+            Reopen
+          </button>
+        ) : (
+          <button className="btn-success" onClick={markComplete} disabled={saving}>
+            Mark complete
+          </button>
+        )}
+        <button className="btn-secondary" onClick={save} disabled={saving || isCompleted}>
+          Save update
+        </button>
       </div>
     </div>
   );

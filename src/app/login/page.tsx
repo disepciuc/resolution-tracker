@@ -68,15 +68,15 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="shell">
-      <div className="mx-auto max-w-lg panel p-8">
+    <div className="shell auth-shell">
+      <div className="mx-auto max-w-lg panel p-8 auth-panel">
         <h1 className="text-3xl font-bold">Welcome back</h1>
         <p className="mt-2 text-[var(--muted)]">Pick up where you left off.</p>
 
         <div className="mt-6 grid gap-3">
           <label className="text-sm font-semibold text-[var(--muted)]">Email</label>
           <input
-            className="w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+            className="input-field w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -85,7 +85,7 @@ export default function LoginPage() {
 
           <label className="text-sm font-semibold text-[var(--muted)]">Password</label>
           <input
-            className="w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+            className="input-field w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -95,7 +95,7 @@ export default function LoginPage() {
 
         {error && <div className="mt-4 text-sm text-red-600">{error}</div>}
 
-        <div className="mt-6 grid gap-3">
+        <div className="mt-6 grid gap-3 auth-actions">
           <button className="btn-primary" onClick={signIn} disabled={loading}>
             Sign in
           </button>

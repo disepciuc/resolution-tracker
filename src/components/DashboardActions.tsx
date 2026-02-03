@@ -30,7 +30,7 @@ export default function DashboardActions({ week }: Props) {
   };
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="action-row flex flex-wrap gap-2">
       {week.status === "not_started" && (
         <Link className="btn-primary" href={`/week/${week.week_number}`}>
           Start
@@ -42,7 +42,7 @@ export default function DashboardActions({ week }: Props) {
         </Link>
       )}
       {week.status === "in_progress" && (
-        <button className="btn-primary" type="button" onClick={markComplete} disabled={loading}>
+        <button className="btn-success" type="button" onClick={markComplete} disabled={loading}>
           Mark Complete
         </button>
       )}

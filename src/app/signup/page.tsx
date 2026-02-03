@@ -54,15 +54,15 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="shell">
-      <div className="mx-auto max-w-lg panel p-8">
+    <div className="shell auth-shell">
+      <div className="mx-auto max-w-lg panel p-8 auth-panel">
         <h1 className="text-3xl font-bold">Create your account</h1>
         <p className="mt-2 text-[var(--muted)]">Set up your tracker in under a minute.</p>
 
         <div className="mt-6 grid gap-3">
           <label className="text-sm font-semibold text-[var(--muted)]">First name</label>
           <input
-            className="w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+            className="input-field w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
             type="text"
             value={firstName}
             onChange={(event) => setFirstName(event.target.value)}
@@ -71,7 +71,7 @@ export default function SignupPage() {
 
           <label className="text-sm font-semibold text-[var(--muted)]">Last name</label>
           <input
-            className="w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+            className="input-field w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
             type="text"
             value={lastName}
             onChange={(event) => setLastName(event.target.value)}
@@ -80,7 +80,7 @@ export default function SignupPage() {
 
           <label className="text-sm font-semibold text-[var(--muted)]">Email</label>
           <input
-            className="w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+            className="input-field w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -89,7 +89,7 @@ export default function SignupPage() {
 
           <label className="text-sm font-semibold text-[var(--muted)]">Confirm email</label>
           <input
-            className="w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+            className="input-field w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
             type="email"
             value={confirmEmail}
             onChange={(event) => setConfirmEmail(event.target.value)}
@@ -98,7 +98,7 @@ export default function SignupPage() {
 
           <label className="text-sm font-semibold text-[var(--muted)]">Password</label>
           <input
-            className="w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+            className="input-field w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -107,7 +107,7 @@ export default function SignupPage() {
 
           <label className="text-sm font-semibold text-[var(--muted)]">Confirm password</label>
           <input
-            className="w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
+            className="input-field w-full rounded-2xl border border-[rgba(138,127,176,0.2)] bg-[var(--card)] px-4 py-3 shadow-[var(--shadow-inset)]"
             type="password"
             value={confirmPassword}
             onChange={(event) => setConfirmPassword(event.target.value)}
@@ -118,7 +118,7 @@ export default function SignupPage() {
         {error && <div className="mt-4 text-sm text-red-600">{error}</div>}
         {message && <div className="mt-4 text-sm text-emerald-700">{message}</div>}
 
-        <div className="mt-6 grid gap-3">
+        <div className="mt-6 grid gap-3 auth-actions">
           <button className="btn-primary" onClick={signUp} disabled={loading}>
             Create account
           </button>

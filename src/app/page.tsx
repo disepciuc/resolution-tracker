@@ -41,19 +41,37 @@ export default async function Home() {
 
     return (
       <div className="shell">
-        <header className="panel flex flex-wrap items-center justify-between gap-4 px-6 py-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] font-bold text-white">
-              RT
+        <header>
+          <div className="panel app-bar mobile-only">
+            <div className="app-bar-row">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] font-bold text-white">
+                  RT
+                </div>
+                <div>
+                  <div className="text-base font-bold">Resolution Tracker</div>
+                  <div className="text-xs text-[var(--muted)]">10-week momentum, one glance</div>
+                </div>
+              </div>
             </div>
-            <div>
-              <div className="text-lg font-bold">Resolution Tracker</div>
-              <div className="text-xs text-[var(--muted)]">10-week momentum, one glance</div>
-            </div>
+            <Link className="btn-primary mobile-full mt-3" href="/login">
+              Sign in
+            </Link>
           </div>
-          <Link className="btn-primary" href="/login">
-            Sign in
-          </Link>
+          <div className="panel header-panel desktop-only flex flex-wrap items-center justify-between gap-4 px-6 py-4">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] font-bold text-white">
+                RT
+              </div>
+              <div>
+                <div className="text-lg font-bold">Resolution Tracker</div>
+                <div className="text-xs text-[var(--muted)]">10-week momentum, one glance</div>
+              </div>
+            </div>
+            <Link className="btn-primary" href="/login">
+              Sign in
+            </Link>
+          </div>
         </header>
 
         <section className="mt-8 grid gap-6">
@@ -67,8 +85,8 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="panel p-5">
+          <div className="grid gap-4 md:grid-cols-3 stat-grid">
+            <div className="panel p-5 stat-card">
               <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
                 Energy
               </div>
@@ -83,14 +101,14 @@ export default async function Home() {
                 <div className="mt-1 text-center text-lg font-bold">Steady</div>
               </div>
             </div>
-            <div className="panel p-5">
+            <div className="panel p-5 stat-card">
               <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
                 Completion
               </div>
               <div className="mt-3 text-3xl font-bold">10 weeks</div>
               <div className="text-sm text-[var(--muted)]">Your journey starts on sign in.</div>
             </div>
-            <div className="panel p-5">
+            <div className="panel p-5 stat-card">
               <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
                 Next week
               </div>
@@ -181,25 +199,54 @@ export default async function Home() {
 
   return (
     <div className="shell">
-      <header className="panel flex flex-wrap items-center justify-between gap-4 px-6 py-4">
-        <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] font-bold text-white">
-            RT
-          </div>
-          <div>
-            <div className="text-lg font-bold">Resolution Tracker</div>
-            <div className="text-xs text-[var(--muted)]">10-week momentum, one glance</div>
+      <header>
+        <div className="panel app-bar mobile-only">
+          <div className="app-bar-row">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] font-bold text-white">
+                RT
+              </div>
+              <div>
+                <div className="text-base font-bold">Resolution Tracker</div>
+                <div className="text-xs text-[var(--muted)]">10-week momentum, one glance</div>
+              </div>
+            </div>
+            <details className="menu">
+              <summary className="menu-trigger">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] text-xs font-bold text-white">
+                  {user.email?.[0]?.toUpperCase() ?? "U"}
+                </div>
+              </summary>
+              <div className="menu-panel">
+                <div className="text-sm font-bold">{displayName}</div>
+                <div className="text-xs text-[var(--muted)]">Signed in</div>
+                <div className="mt-3">
+                  <LogoutButton />
+                </div>
+              </div>
+            </details>
           </div>
         </div>
-        <div className="flex items-center gap-3 rounded-2xl border border-[rgba(138,127,176,0.15)] bg-[var(--card)] px-3 py-2 shadow-[var(--shadow)]">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] text-xs font-bold text-white">
-            {user.email?.[0]?.toUpperCase() ?? "U"}
+        <div className="panel header-panel desktop-only flex flex-wrap items-center justify-between gap-4 px-6 py-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] font-bold text-white">
+              RT
+            </div>
+            <div>
+              <div className="text-lg font-bold">Resolution Tracker</div>
+              <div className="text-xs text-[var(--muted)]">10-week momentum, one glance</div>
+            </div>
           </div>
-          <div>
-            <div className="text-sm font-bold">{displayName}</div>
-            <div className="text-xs text-[var(--muted)]">Signed in</div>
+          <div className="flex items-center gap-3 rounded-2xl border border-[rgba(138,127,176,0.15)] bg-[var(--card)] px-3 py-2 shadow-[var(--shadow)]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] text-xs font-bold text-white">
+              {user.email?.[0]?.toUpperCase() ?? "U"}
+            </div>
+            <div>
+              <div className="text-sm font-bold">{displayName}</div>
+              <div className="text-xs text-[var(--muted)]">Signed in</div>
+            </div>
+            <LogoutButton />
           </div>
-          <LogoutButton />
         </div>
       </header>
 
@@ -214,8 +261,8 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
-            <div className="panel p-5">
+        <div className="grid gap-4 md:grid-cols-3 stat-grid">
+            <div className="panel p-5 stat-card">
               <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
                 Energy
               </div>
@@ -237,7 +284,7 @@ export default async function Home() {
                 <div className="mt-1 text-center text-lg font-bold">{energyLabel}</div>
               </div>
             </div>
-          <div className="panel p-5">
+          <div className="panel p-5 stat-card">
             <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
               Completion
             </div>
@@ -246,7 +293,7 @@ export default async function Home() {
             </div>
             <div className="text-sm text-[var(--muted)]">{inProgressCount} in progress</div>
           </div>
-          <div className="panel p-5">
+          <div className="panel p-5 stat-card">
             <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
               Next week
             </div>

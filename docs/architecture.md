@@ -3,6 +3,8 @@
 ## Overview
 Resolution Tracker is a full-stack Next.js app with Supabase for auth and data. The UI is built to mirror the approved mockups (neumorphic lavender theme) while keeping the app PWA-capable and mobile-first.
 
+Week titles and descriptions are stored in a local content module (`src/lib/weekContent.ts`) and surfaced on both the dashboard cards and week detail header.
+
 ## Stack
 - Frontend/Backend: Next.js (App Router, TypeScript, Tailwind)
 - Auth + DB: Supabase (Postgres + Auth: Email/Password + Google)

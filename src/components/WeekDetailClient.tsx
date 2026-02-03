@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import type { WeekProgress, EnergyLevel, WeekStatus } from "@/lib/types";
+import { weekDescriptions } from "@/lib/weekContent";
 
 type Props = {
   week: WeekProgress;
@@ -80,6 +81,9 @@ export default function WeekDetailClient({ week }: Props) {
     router.refresh();
   };
 
+  const weekDescription =
+    weekDescriptions[week.week_number - 1] ?? "Keep building momentum with focused weekly practice.";
+
   return (
     <div className="panel p-6 detail-panel">
       <div className="panel app-bar mobile-only mb-4">
@@ -96,7 +100,7 @@ export default function WeekDetailClient({ week }: Props) {
             Week {week.week_number}
           </p>
           <h1 className="text-3xl font-bold">Build your momentum</h1>
-          <p className="text-sm text-[var(--muted)]">Log notes, time spent, and progress.</p>
+          <p className="text-sm text-[var(--muted)]">{weekDescription}</p>
         </div>
         <div className="flex gap-2 desktop-only">
           {isCompleted ? (

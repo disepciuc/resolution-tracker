@@ -44,8 +44,8 @@ describe("WeekDetailClient", () => {
     fireEvent.change(slider, { target: { value: "100" } });
 
     expect(slider.value).toBe("100");
-    expect(screen.getByRole("button", { name: /mark complete/i })).toBeInTheDocument();
-    const saveButton = screen.getByRole("button", { name: /save update/i });
+    expect(screen.getAllByRole("button", { name: /mark complete/i })[0]).toBeInTheDocument();
+    const saveButton = screen.getAllByRole("button", { name: /save update/i })[0];
     expect(saveButton).not.toBeDisabled();
   });
 });

@@ -4,21 +4,9 @@ import { createSupabaseServiceClient } from "@/lib/supabase/service";
 import { overallProgress, nextWeekNumber } from "@/lib/progress";
 import { minutesToHours } from "@/lib/format";
 import type { WeekProgress } from "@/lib/types";
+import { weekTitles, weekDescriptions } from "@/lib/weekContent";
 import DashboardActions from "@/components/DashboardActions";
 import LogoutButton from "@/components/LogoutButton";
-
-const weekTitles = [
-  "Resolution Tracker",
-  "Model Mapping",
-  "Deep Research",
-  "Data Analyst",
-  "Visual Reasoning",
-  "Information Pipelines",
-  "Automation: Distribution",
-  "Automation: Productivity",
-  "Context Engineering",
-  "Build an AI App",
-];
 
 export default async function Home() {
   const supabase = await createSupabaseServerClient();
@@ -45,12 +33,19 @@ export default async function Home() {
           <div className="panel app-bar mobile-only">
             <div className="app-bar-row">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] font-bold text-white">
-                  RT
+                <div className="app-icon app-icon-sm flex h-10 w-10 items-center justify-center rounded-2xl">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="icon-tabler">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                    <path d="M12 7a5 5 0 1 0 5 5" />
+                    <path d="M13 3.055a9 9 0 1 0 7.941 7.945" />
+                    <path d="M15 6v3h3l3 -3h-3v-3l-3 3" />
+                    <path d="M15 9l-3 3" />
+                  </svg>
                 </div>
                 <div>
-                  <div className="text-base font-bold">Resolution Tracker</div>
-                  <div className="text-xs text-[var(--muted)]">10-week momentum, one glance</div>
+                  <div className="app-title font-bold">Resolution Tracker</div>
+                  <div className="app-subtitle text-[var(--muted)]">10-week AI learning path</div>
                 </div>
               </div>
               <Link className="btn-primary app-bar-cta" href="/login">
@@ -60,12 +55,19 @@ export default async function Home() {
           </div>
           <div className="panel header-panel desktop-only flex flex-wrap items-center justify-between gap-4 px-6 py-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] font-bold text-white">
-                RT
+              <div className="app-icon app-icon-lg flex h-11 w-11 items-center justify-center rounded-2xl">
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="icon-tabler">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M12 7a5 5 0 1 0 5 5" />
+                  <path d="M13 3.055a9 9 0 1 0 7.941 7.945" />
+                  <path d="M15 6v3h3l3 -3h-3v-3l-3 3" />
+                  <path d="M15 9l-3 3" />
+                </svg>
               </div>
               <div>
                 <div className="text-lg font-bold">Resolution Tracker</div>
-                <div className="text-xs text-[var(--muted)]">10-week momentum, one glance</div>
+                <div className="text-xs text-[var(--muted)]">10-week AI learning path</div>
               </div>
             </div>
             <Link className="btn-primary" href="/login">
@@ -120,7 +122,7 @@ export default async function Home() {
           <section className="panel p-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-bold">Your 10-week track</h2>
+                <h2 className="text-2xl font-bold">Your 10-week AI learning path</h2>
                 <p className="text-sm text-[var(--muted)]">Preview your journey. Sign in to track.</p>
               </div>
               <Link className="btn-primary" href="/login">
@@ -142,6 +144,9 @@ export default async function Home() {
                   </div>
                   <div className="text-lg font-semibold">
                     {weekTitles[week.week_number - 1] ?? `Week ${week.week_number} focus`}
+                  </div>
+                  <div className="week-desc text-sm text-[var(--muted)]">
+                    {weekDescriptions[week.week_number - 1] ?? "Sign in to see the focus for this week."}
                   </div>
                   <div className="text-sm text-[var(--muted)]">
                     Sign in to add your notes, progress, and time.
@@ -203,12 +208,19 @@ export default async function Home() {
         <div className="panel app-bar mobile-only">
           <div className="app-bar-row">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] font-bold text-white">
-                RT
+              <div className="app-icon app-icon-sm flex h-10 w-10 items-center justify-center rounded-2xl">
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="icon-tabler">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M12 7a5 5 0 1 0 5 5" />
+                  <path d="M13 3.055a9 9 0 1 0 7.941 7.945" />
+                  <path d="M15 6v3h3l3 -3h-3v-3l-3 3" />
+                  <path d="M15 9l-3 3" />
+                </svg>
               </div>
               <div>
-                <div className="text-base font-bold">Resolution Tracker</div>
-                <div className="text-xs text-[var(--muted)]">10-week momentum, one glance</div>
+                <div className="app-title font-bold">Resolution Tracker</div>
+                <div className="app-subtitle text-[var(--muted)]">10-week AI learning path</div>
               </div>
             </div>
             <details className="menu">
@@ -229,12 +241,19 @@ export default async function Home() {
         </div>
         <div className="panel header-panel desktop-only flex flex-wrap items-center justify-between gap-4 px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-[#b1a7ff] font-bold text-white">
-              RT
+            <div className="app-icon app-icon-lg flex h-11 w-11 items-center justify-center rounded-2xl">
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="icon-tabler">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                <path d="M12 7a5 5 0 1 0 5 5" />
+                <path d="M13 3.055a9 9 0 1 0 7.941 7.945" />
+                <path d="M15 6v3h3l3 -3h-3v-3l-3 3" />
+                <path d="M15 9l-3 3" />
+              </svg>
             </div>
             <div>
               <div className="text-lg font-bold">Resolution Tracker</div>
-              <div className="text-xs text-[var(--muted)]">10-week momentum, one glance</div>
+              <div className="text-xs text-[var(--muted)]">10-week AI learning path</div>
             </div>
           </div>
           <div className="flex items-center gap-3 rounded-2xl border border-[rgba(138,127,176,0.15)] bg-[var(--card)] px-3 py-2 shadow-[var(--shadow)]">
@@ -306,7 +325,7 @@ export default async function Home() {
       <section className="panel mt-8 p-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-bold">Your 10-week track</h2>
+            <h2 className="text-2xl font-bold">Your 10-week AI learning path</h2>
             <p className="text-sm text-[var(--muted)]">Tap a week to update notes and progress.</p>
           </div>
         </div>
@@ -341,11 +360,16 @@ export default async function Home() {
                 <div className="text-lg font-semibold">
                   {weekTitles[week.week_number - 1] ?? `Week ${week.week_number} focus`}
                 </div>
-                {week.status !== "not_started" && (
-                  <div className="flex flex-wrap items-center justify-between text-sm text-[var(--muted)]">
-                    <span>{minutesToHours(week.time_spent_minutes)} logged</span>
+                <div className="week-desc-row">
+                  <div className="week-desc text-sm text-[var(--muted)]">
+                    {weekDescriptions[week.week_number - 1] ?? "Keep building momentum this week."}
                   </div>
-                )}
+                  {week.status !== "not_started" && (
+                    <div className="week-meta-pill">
+                      {minutesToHours(week.time_spent_minutes)} logged
+                    </div>
+                  )}
+                </div>
                 {week.status === "in_progress" && (
                   <div className="flex items-center gap-3">
                     <div className="progress-line flex-1">

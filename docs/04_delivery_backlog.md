@@ -100,6 +100,8 @@ I want a single dashboard that summarizes my 10-week journey.
 
 - Dashboard displays all 10 weeks in order
 - Each week is visually distinct and scannable
+- Each week shows its title and short description
+- Time logged appears on the week card when available
 - Current/next recommended week is visually highlighted
 - Logged-out users see a preview dashboard with the same structure
 

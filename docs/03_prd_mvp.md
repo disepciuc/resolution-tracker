@@ -27,6 +27,8 @@ This PRD defines the **minimum functional capabilities** required to meet the We
 - Each week must be individually addressable and trackable.
 - The structure must support future reuse or extension without re-architecture.
 - The dashboard should show a non-authenticated preview of the 10-week structure.
+- Each week includes a title and a short description that appears on the dashboard and week detail.
+- Time logged is surfaced on week cards when available.
 
 ---
 

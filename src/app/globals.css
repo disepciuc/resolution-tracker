@@ -168,6 +168,35 @@ body {
   font-size: 14px;
 }
 
+.week-desc {
+  margin-top: 6px;
+}
+
+.week-desc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.week-meta-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(47, 49, 66, 0.12);
+  color: #2f3142;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .week-desc-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
 .speedometer .needle {
   stroke: var(--ink);
   stroke-width: 3;
@@ -252,6 +281,43 @@ body {
 .app-bar {
   padding: 12px 16px;
   border-radius: 18px;
+}
+
+.app-icon {
+  background: linear-gradient(135deg, #f3c96a, #f1a87d);
+  color: #2a2542;
+  box-shadow: var(--shadow);
+}
+
+.app-icon svg {
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.app-icon svg path[fill="none"] {
+  stroke: none;
+}
+
+.app-icon-sm svg {
+  width: 26px;
+  height: 26px;
+}
+
+.app-icon-lg svg {
+  width: 30px;
+  height: 30px;
+}
+
+.app-title {
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.app-subtitle {
+  font-size: 13px;
 }
 
 .app-bar-row {
@@ -440,6 +506,14 @@ body {
 
   .detail-panel {
     padding-bottom: 120px;
+  }
+
+  .app-title {
+    font-size: 20px;
+  }
+
+  .app-subtitle {
+    font-size: 14px;
   }
 
   .stat-grid {

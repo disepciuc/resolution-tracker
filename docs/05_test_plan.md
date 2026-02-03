@@ -19,10 +19,12 @@ Verify end-to-end flows for authentication, dashboard, week detail, and persiste
 1. Public dashboard loads with 10-week preview.
 2. Progress bar shows neutral “Sign in to reveal progress” message.
 3. Week cards show titles (no private data).
+4. Week cards show short descriptions.
 
 ### Dashboard (Logged In)
 1. First login seeds 10 weeks.
 2. All 10 cards render with correct titles.
+3. Week cards show short descriptions.
 3. Energy gauge shows “Steady” by default.
 4. Next week shows Week 1 when no progress.
 5. Mark Complete on an in-progress week updates in place.

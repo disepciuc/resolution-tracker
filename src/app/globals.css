@@ -245,6 +245,10 @@ body {
   display: none;
 }
 
+.desktop-only {
+  display: none;
+}
+
 .app-bar {
   padding: 12px 16px;
   border-radius: 18px;
@@ -259,6 +263,19 @@ body {
 
 .app-bar-back {
   padding: 8px 14px;
+}
+
+.app-bar-cta {
+  min-width: 88px;
+  height: 36px;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .menu {
@@ -447,5 +464,11 @@ body {
   .action-row .btn-primary,
   .action-row .btn-ghost {
     width: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-only {
+    display: flex;
   }
 }

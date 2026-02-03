@@ -53,10 +53,10 @@ export default async function Home() {
                   <div className="text-xs text-[var(--muted)]">10-week momentum, one glance</div>
                 </div>
               </div>
+              <Link className="btn-primary app-bar-cta" href="/login">
+                Sign in
+              </Link>
             </div>
-            <Link className="btn-primary mobile-full mt-3" href="/login">
-              Sign in
-            </Link>
           </div>
           <div className="panel header-panel desktop-only flex flex-wrap items-center justify-between gap-4 px-6 py-4">
             <div className="flex items-center gap-3">
